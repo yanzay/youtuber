@@ -40,8 +40,6 @@ func youtubeHandler(message tbot.Message) {
 	message.Replyf("Download complete: %s", link)
 }
 
-// transmission-remote --add "magnet:?xt=urn:btih:13a27bdb9848a2e90514d5e6cc4e70f57e0ad11f&dn=Doctor+Strange+2016+HD-TS+x264+AC3-CPG&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969" --auth "transmission:transmission"
-
 func magnetHandler(message tbot.Message) {
 	link := message.Vars["link"]
 	if !strings.HasPrefix(link, "magnet:") {
