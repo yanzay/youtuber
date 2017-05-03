@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -27,17 +28,17 @@ func main() {
 func youtubeHandler(message tbot.Message) {
 	link := message.Vars["link"]
 	if !strings.Contains(link, "youtube.com") && !strings.Contains(link, "youtu.be") {
-		message.Replyf("Error: '%s' is not a valid youtube link", link)
+		message.Reply(fmt.Sprintf("Error: '%s' is not a valid youtube link", link), tbot.DisablePreview)
 		return
 	}
 	cmd := exec.Command("/usr/local/bin/youtube-dl", "--no-mtime", "--restrict-filenames", "-o", "/home/osmc/downloads/%(id)s-%(title)s.%(ext)s", link)
-	message.Replyf("Downloading %s", link)
+	message.Reply(fmt.Sprintf("Downloading %s", link), tbot.DisablePreview)
 	err := cmd.Run()
 	if err != nil {
-		message.Replyf("Error downloading %s: %s", link, err)
+		message.Reply(fmt.Sprintf("Error downloading %s: %s", link, err), tbot.DisablePreview)
 		return
 	}
-	message.Replyf("Download complete: %s", link)
+	message.Reply(fmt.Sprintf("Download complete: %s", link), tbot.DisablePreview)
 }
 
 func magnetHandler(message tbot.Message) {
