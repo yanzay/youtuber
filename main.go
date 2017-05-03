@@ -30,7 +30,7 @@ func youtubeHandler(message tbot.Message) {
 		message.Replyf("Error: '%s' is not a valid youtube link", link)
 		return
 	}
-	cmd := exec.Command("/usr/local/bin/youtube-dl", "--no-mtime", "--restrict-filenames", "-o", "/home/osmc/downloads/%(title)s-%(id)s.%(ext)s", link)
+	cmd := exec.Command("/usr/local/bin/youtube-dl", "--no-mtime", "--restrict-filenames", "-o", "/home/osmc/downloads/%(id)s-%(title)s.%(ext)s", link)
 	message.Replyf("Downloading %s", link)
 	err := cmd.Run()
 	if err != nil {
