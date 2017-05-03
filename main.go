@@ -19,6 +19,7 @@ func main() {
 
 	bot.HandleFunc("/youtube {link}", youtubeHandler, "Download video from youtube")
 	bot.HandleFunc("/magnet {link}", magnetHandler, "Add magnet link to transmission")
+	bot.HandleFile(torrentHandler, "Upload torrent file")
 
 	bot.AddMiddleware(tbot.NewAuth([]string{"yanzay", "katyabedryk"}))
 
@@ -55,4 +56,13 @@ func magnetHandler(message tbot.Message) {
 		return
 	}
 	message.Reply("Magnet link added")
+}
+
+func torrentHandler(message tbot.Message) {
+	err := message.Download("/home/osmc/watchdir")
+	if err != nil {
+		message.Replyf("Error handling file: %v", err)
+		return
+	}
+	message.Reply("Thanks for uploading!")
 }
