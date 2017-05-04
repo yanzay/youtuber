@@ -1,0 +1,25 @@
+memo = "9d42edf485edf5a41f0010d9dfd81bdfdb879b5a602224906e660e6d78a82846"
+
+[[projects]]
+  name = "github.com/go-telegram-bot-api/telegram-bot-api"
+  packages = ["."]
+  revision = "0a57807db79efce7f6719fbb2c0e0f83fda79aec"
+  version = "v4.6"
+
+[[projects]]
+  name = "github.com/technoweenie/multipartstreamer"
+  packages = ["."]
+  revision = "a90a01d73ae432e2611d178c18367fbaa13e0154"
+  version = "v1.0.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/yanzay/log"
+  packages = ["."]
+  revision = "87352bb235060cca8427c8f9fdd68c83b38ba461"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/yanzay/tbot"
+  packages = ["."]
+  revision = "5e339287c546fc241f3758f93f7d3836c946d69d"

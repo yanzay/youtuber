@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"os/exec"
@@ -11,6 +12,7 @@ import (
 )
 
 func main() {
+	flag.Parse()
 	token := os.Getenv("YOUTUBER_TOKEN")
 	bot, err := tbot.NewServer(token)
 	if err != nil {
